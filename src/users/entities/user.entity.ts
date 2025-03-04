@@ -1,4 +1,5 @@
 import { CategoryEntity } from "src/categories/entities/category.entity";
+import { ProductEntity } from "src/products/entities/product.entity";
 import { Roles } from "src/utils/common/user-roles.enum";
 import { BeforeInsert, Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, Timestamp, UpdateDateColumn } from "typeorm";
 
@@ -28,5 +29,8 @@ export class UserEntity {
 
     @OneToMany(() => CategoryEntity, (category) => category.addedBy)
     categories: CategoryEntity[];
+
+    @OneToMany(() => ProductEntity, (product) => product.addedBy)
+    products: ProductEntity[];
     
 }
